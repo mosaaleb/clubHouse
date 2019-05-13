@@ -1,10 +1,12 @@
+# frozen_string_literal: true
 class PostsController < ApplicationController
-  def new
-  end
+  before_action :authenticate
 
-  def create
-  end
+  def new; end
 
-  def index
-  end
+  def create; end
+
+  def index; end
+
+  def show; end
 end
