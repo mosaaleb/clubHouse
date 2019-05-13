@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :homes, only: [:index]
-  resources :sessions, only: [:new, :create, :delete]
+  resource :session, only: %i[new create destroy]
   root 'homes#index'
 end
