@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       sign_in(user)
       remember_user(user)
-      flash[:success] = "Welcome, #{current_user.username}!"
-      redirect_to homes_path
+      redirect_to posts_path
     else
       flash.now[:error] = 'Invalid login details'
       render 'new'

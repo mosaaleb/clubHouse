@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
   end
 
-  def current_user
-    current_user ||= User.find_by(remember_token: cookies.permanent[:token])
-  end
-
   def remember_user(user)
     cookies.permanent[:token] = user.remember_token
   end
@@ -18,4 +14,9 @@ class ApplicationController < ActionController::Base
     flash[:success] = 'You have signed out!'
     redirect_to homes_path
   end
+
+  def current_user
+    @current_user ||= User.find_by(remember_token: cookies.permanent[:token])
+  end
+
 end

@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # associations
   before_create :user_token
+  has_many :posts
+
+
+  
   has_secure_password
 
   private
