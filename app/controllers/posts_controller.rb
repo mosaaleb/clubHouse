@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class PostsController < ApplicationController
   include PostsHelper
-  before_action :authenticate, :only[:new, :create]
+  before_action :authenticate, only: [:new, :create]
 
   def index
     @posts = Post.all
