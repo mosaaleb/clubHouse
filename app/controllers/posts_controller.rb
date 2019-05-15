@@ -1,18 +1,14 @@
 # frozen_string_literal: true
 class PostsController < ApplicationController
   include PostsHelper
+  before_action :authenticate, :only[:new, :create]
 
   def index
     @posts = Post.all
   end
 
   def new
-    if signed_in?
-      @post = current_user.posts.new
-    else
-      flash[:error] = 'Please, sign in to create post'
-      redirect_to new_session_path
-    end
+    @post = current_user.posts.new
   end
 
   def create

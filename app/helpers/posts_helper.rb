@@ -1,6 +1,7 @@
 module PostsHelper
   def authenticate
     if !signed_in?
+      flash[:error] = 'Please, sign in to create post'
       redirect_to new_session_path
     end
   end

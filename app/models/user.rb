@@ -5,10 +5,7 @@ class User < ApplicationRecord
   before_create :user_token
   has_many :posts
 
-
-  
   has_secure_password
-
   private
 
   def user_token
