@@ -4,9 +4,10 @@ class User < ApplicationRecord
   # associations
   before_create :user_token
   has_many :posts
+  validates :username, presence: true, length: { minimum: 6 }
+  validates :email, presence: true
+  validates :password, presence: true, length: { minimum: 6 }
 
-
-  
   has_secure_password
 
   private

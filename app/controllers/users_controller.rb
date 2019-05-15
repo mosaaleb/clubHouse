@@ -12,13 +12,13 @@ class UsersController < ApplicationController
       remember_user(@user)
       redirect_to posts_path
     else
-      render :new, notice: 'Parameters must not be blank!'
+      render :new
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 end
