@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :posts, only: %i[new create index show]
+  resources :users, only: %i[new create]
+  resources :homes, only: [:index]
+  resource :session, only: %i[new create destroy]
+  root 'homes#index'
 end

@@ -1,0 +1,4 @@
+<% if signed_in? %>
+  <%= link_to 'Create new post', new_post_path %> | 
+<% end %>
+<%= link_to 'All posts', posts_path%>
